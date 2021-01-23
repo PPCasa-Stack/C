@@ -1,0 +1,38 @@
+#include <cs50.h>
+#include <stdio.h>
+
+
+int main(void)
+
+{
+    int startpop; 
+    int endpop;
+    int years = 0;
+    
+    //starting population size
+    do   
+    {
+        startpop = get_int("Starting population: ");    
+    }
+    while (startpop <= 9);
+
+    //ending population size
+    do
+    {
+        endpop = get_int("Ending population: ");
+    }
+    while (endpop <= startpop );
+
+    
+    //Calculator  | startpop + (startpop/3) - (startpop/4) = endpop
+    //currentpop (year + 1 )= startpop (year) + (startpop(year)/3) - (startpop(year)/4);
+    
+    while (startpop < endpop)
+    {
+        startpop = startpop + (startpop /3) - (startpop/4);
+        years++;
+        
+    }
+    
+    printf("Years: %i", years);
+}       
