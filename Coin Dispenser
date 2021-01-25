@@ -1,0 +1,64 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+    //user input for change owed
+    float cash;
+    do
+    {
+        cash = get_float("Please insert the required change: ");
+    }
+    while (cash <= 0);
+
+    //decimal multplier
+    float cents = roundf(cash * 100);
+
+    //coin values
+    int coins = 0;
+    int qcoins = 0;
+    int dcoins = 0;
+    int ncoins = 0;
+    int pcoins = 0;
+    int q = 25;
+    int d = 10;
+    int n = 5;
+    int p = 1;
+
+
+    //algorithm
+    while (cents >= q )
+    {
+        cents = cents - q;
+        coins++;
+        qcoins++;
+    }
+
+    while (cents >= d )
+    {
+        cents = cents - d;
+        coins++;
+        dcoins++;
+    }
+    while (cents >= n )
+    {
+        cents = cents - n;
+        coins++;
+        ncoins++;
+    }
+    while (cents >= p)
+    {
+        cents = cents - p;
+        coins++;
+        pcoins++;
+    }
+
+    // coin receipt
+    printf("Total coins used: %i\nOf which: \n", coins);
+    printf("Quarters used: %i\n", qcoins);
+    printf("Dimes used: %i\n", dcoins);
+    printf("Nickels used: %i\n", ncoins);
+    printf("Pennies used: %i\n", pcoins);
+    
+}
